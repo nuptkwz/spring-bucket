@@ -1,5 +1,6 @@
 package com.example.springboot.config;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,13 +14,16 @@ import org.springframework.context.annotation.Profile;
  * Date 2021/1/21 23:21
  * Created by kwz
  */
-@Profile("dev")
+@Profile("prod")
 @Configuration
 @Slf4j
 public class DevDataInitConfig {
 
-    @Autowired
+    @Setter(onMethod_ = @Autowired)
     private ScoreConfig scoreConfig;
+
+    @Setter(onMethod_ = @Autowired)
+    private DataSourceConfig dataSourceConfig;
 
     @Bean
     public CommandLineRunner dataInit() {
@@ -29,6 +33,9 @@ public class DevDataInitConfig {
             public void run(String... args) throws Exception {
                 String name = scoreConfig.getName();
                 log.info(name + "init dev environment params");
+
+                log.info("--------------------------------------->");
+                log.info("dataSourceConfig--prod:{}",dataSourceConfig.prodDataSource());
             }
         };
     }

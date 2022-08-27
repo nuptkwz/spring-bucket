@@ -1,5 +1,5 @@
 personal:
-  name: zhangsan
+  name: zhangsan-test
   age: 13
   max: ${random.int(10)}
   uuid: ${random.uuid}
