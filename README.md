@@ -1,2 +1,2 @@
 # spring-bucket
-spring全家桶相关练习
+spring相关练习
