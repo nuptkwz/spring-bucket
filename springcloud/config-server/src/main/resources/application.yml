@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # git仓库地址
+          uri: https://github.com/nuptkwz/SpringcloudConfig/
+          # 配置仓库路径
+          search-paths: respo
+          # 访问git仓库的用户名,用户密码,如果是私有仓库需要填写
+          username:
+          passphrase:
+      label: master
+
+server:
+  port: 8090
