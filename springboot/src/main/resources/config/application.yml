@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: spring-boot
+
+server:
+  port: 8080
+  servlet:
+    context-path: /spring-boot
+
+personal:
+  name: resources-config-keweizhou
+  age: 25
+  max: ${random.int(10)}
+  uuid: ${random.uuid}
+  hello: hello, i'm ${personal.name}, and ${personal.age}
+# 配置文件格式
+#  /{application}.yml
+#  /{application}-{profile}.yml
+#  /{label}/{application}-{profile}.yml
+#  /{application}-{profile}.properties
+#  /{label}/{application}-{profile}.properties
+score:
+  subject:
+    math: 89
+    chinese: 78
+    english: 88
+
+
+# actuator配置
+#1、actuator默认只开启了info和health两个端点
+#以下配置可以开启所有的端点：
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,*
+      base-path: /
+  #2、开启健康监控数据
+  endpoint:
+    health:
+      show-details: always
+    httptrace:
+      enabled: true
+
+
+
